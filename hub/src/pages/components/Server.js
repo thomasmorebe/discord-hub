@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Card, Button, Modal, Row, Col, Badge } from "react-bootstrap"
 import HCaptcha from '@hcaptcha/react-hcaptcha';
+import { withTranslation } from 'react-i18next';
 
 
 class Server extends Component {
@@ -60,6 +61,7 @@ class Server extends Component {
   }
 
   render() {
+    const { t } = this.props;
     return (
       <>
         <Card>
@@ -76,18 +78,18 @@ class Server extends Component {
               </div>
               {this.state.server.description}
             </Card.Text>
-            <Button variant="info"onClick={this.openModal} >Join!</Button>
+            <Button variant="info"onClick={this.openModal} >{t('join_button')}</Button>
           </Card.Body>
         </Card>
         <Modal show={this.state.showModal} onHide={this.closeModal} backdrop="static" keyboard={false} centered size="lg" >
           <Modal.Header closeButton>
-            <Modal.Title>You're one step away from joining {this.state.server.name}!</Modal.Title>
+            <Modal.Title>{t('one_step_away', {GUILD: this.state.server.name})}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Row>
               <Col xs={7}>
-                <p>Thomas Bot is the only robot who may enter.</p>
-                <p>Can you confirm you're not a fellow robot?</p>
+                <p>{t('only_robot_can_enter')}</p>
+                <p>{t('confirm_not_robot')}</p>
                 {
                 this.state.inviteURL ? 
                 <div className="mt-3">
@@ -111,4 +113,4 @@ class Server extends Component {
   }
 }
 
-export default Server;
+export default withTranslation()(Server);

@@ -2,6 +2,7 @@ import { Component } from "react";
 import { Card, Button, Modal, Row, Col, Form, Alert, Toast } from "react-bootstrap"
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { ToastService } from "../../_services/toastService";
+import { withTranslation } from 'react-i18next';
 
 
 class NotYet extends Component {
@@ -81,21 +82,17 @@ class NotYet extends Component {
 
 
   render() {
+    const { t } = this.props;
     return (
       <>
-        <Toast onClose={() => this.setState({showToast: false})} show={this.state.showToast} delay={3000} position="top-center" autohide>
-        <Toast.Header closeButton={true}>
-            </Toast.Header>
-          <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
-        </Toast>
         <Card>
           <Card.Img variant="top" src="" />
           <Card.Body>
-            <Card.Title>Your programme not here?</Card.Title>
+            <Card.Title>{t("programme_not_here")}</Card.Title>
             <Card.Text>
-              Your programme is not here yet. Do you want to know when they launch a Discord community? Sign up below and we will let you know when there is news!
+              {t("programme_not_here_desc")}
             </Card.Text>
-            <Button variant="info" onClick={this.openModal} >Let me know!</Button>
+            <Button variant="info" onClick={this.openModal} >{t('let_me_know')}</Button>
           </Card.Body>
         </Card>
         <Modal show={this.state.showModal} onHide={this.closeModal} backdrop="static" keyboard={false} centered size="lg" >
@@ -154,4 +151,4 @@ class NotYet extends Component {
   }
 }
 
-export default NotYet;
+export default withTranslation()(NotYet);

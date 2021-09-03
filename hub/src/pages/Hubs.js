@@ -2,6 +2,7 @@ import { Component } from "react";
 import { Row, Col } from "react-bootstrap";
 import Server from "./components/Server";
 import NotYet from "./components/NotYet";
+import { withTranslation } from 'react-i18next';
 
 
 class Hubs extends Component {
@@ -31,6 +32,7 @@ class Hubs extends Component {
 
 
     render() {
+        const { t } = this.props;
         const { loading, servers } = this.state;
 
         if (loading) {
@@ -41,8 +43,8 @@ class Hubs extends Component {
             <>
             <Row>
                 <div className="container-fluid py-5">
-                    <h1 class="display-5 fw-bold">Join us on Discord!</h1>
-                    <p class="col-md-8 fs-4">We are team Camplus, bla bla bla... Dirk fix this!</p>
+                    <h1 class="display-5 fw-bold">{t('jumbotron_header')}</h1>
+                    <p class="col-md-8 fs-4">{t('jumbotron_text')}</p>
                 </div>
             </Row>
             <Row>
@@ -60,4 +62,4 @@ class Hubs extends Component {
       }
 }
 
-export default Hubs;
+export default withTranslation()(Hubs);

@@ -1,0 +1,13 @@
+{
+    "select_language": "Kies Taal",
+    "jumbotron_header": "Join us on Discord",
+    "jumbotron_text": "Dirk fix deze tekest is...",
+    "join_button": "Join!",
+    "one_step_away": "Je bent nog een stap weg van {{GUILD}}!",
+    "only_robot_can_enter": "Thomas Bot is de enige robot die binnen mag!",
+    "confirm_not_robot": "Kan je even bevestigen dat je geen collega robot bent?",
+    "programme_not_here": "Jouw opleiding nog niet hier?",
+    "programme_not_here_desc": "Jouw opleiding nog niet hier? Wil je op de hoogte gehouden worden wanneer er ook een Discord voor jouw opleiding is?",
+    "let_me_know": "Houd me op de hoogte!"
+}
+  
