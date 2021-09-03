@@ -2,6 +2,7 @@ import './App.scss';
 import {Container} from 'react-bootstrap';
 import AppNav from './Nav';
 import Hubs from './pages/Hubs';
+import GlobalToast from './pages/components/GlobalToast';
 
 import {
   BrowserRouter as Router,
@@ -13,6 +14,7 @@ function App() {
   return (
     <Router>
     <Container>
+      <GlobalToast />
       <AppNav></AppNav>
       <Switch>
           <Route path="/">
