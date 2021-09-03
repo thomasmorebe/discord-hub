@@ -1,0 +1,20 @@
+{
+    "servers": {
+        "687565213943332875": {
+            "guildID": "687565213943332875",
+            "name": "IT Factory",
+            "description": "Join us feel free IT Factory",
+            "bannerURL": "https://www.weareitfactory.be/assets/img/itfactory_interactive/ITF_visual_new.jpg",
+            "order": 10,
+            "inviteChannelID": "687588438886842373"
+        },
+        "689786403596533841": {
+            "guildID": "689786403596533841",
+            "name": "IT Graduanten",
+            "description": "Join us feel free this is NOT the IT Factory",
+            "bannerURL": "https://avatars.githubusercontent.com/u/79047042?s=400&u=980ec621f79ec76c740489cf290d704f30c17b06&v=4",
+            "order": 11,
+            "inviteChannelID": "689786403596533845"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+name: Docker push to Dispatch
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ '*' ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          # Need all the history for git describe --tags to work
+          fetch-depth: 0
+      - name: Install buildx
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y binfmt-support qemu-user-static jq
+          mkdir -p ~/.docker/cli-plugins
+          BUILDX_URL=$(curl https://api.github.com/repos/docker/buildx/releases/latest | jq -r .assets[].browser_download_url | grep amd64 | grep linux)
+          wget $BUILDX_URL -O ~/.docker/cli-plugins/docker-buildx
+          chmod +x ~/.docker/cli-plugins/docker-buildx
+          docker buildx create --name xbuilder
+          docker buildx use xbuilder
+          docker buildx inspect --bootstrap
+      - name: Log in to registry
+        run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login registry.dispatch.sh -u $DOCKER_USERNAME --password-stdin
+      - name: Build
+        run: docker buildx build -t registry.dispatch.sh/maartje/discord-hub:$(git describe --tag) --push --platform "linux/amd64,linux/arm64,linux/arm" .
