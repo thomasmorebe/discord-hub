@@ -105,7 +105,7 @@ class NotYet extends Component {
                 </Form>
               </Col>
               <Col xs={5}>
-                <img src="/thomasbot.png" className={"img-fluid"} />
+                <img src="/thomas-sad.png" className={"img-fluid"} />
               </Col>
             </Row>
           </Modal.Body>
