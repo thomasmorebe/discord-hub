@@ -25,6 +25,6 @@ jobs:
           docker buildx use xbuilder
           docker buildx inspect --bootstrap
       - name: Log in to registry
-        run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login registry.dispatch.sh -u $DOCKER_USERNAME --password-stdin
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login registry.dispatch.sh -u $DOCKER_USERNAME --password-stdin
       - name: Build
         run: docker buildx build -t registry.dispatch.sh/maartje/discord-hub:$(git describe --tag) --push --platform "linux/amd64,linux/arm64,linux/arm" .
