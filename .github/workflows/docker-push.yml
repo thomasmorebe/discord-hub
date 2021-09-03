@@ -27,4 +27,4 @@ jobs:
       - name: Log in to registry
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login registry.dispatch.sh -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
       - name: Build
-        run: docker buildx build -t registry.dispatch.sh/maartje/discord-hub:$(git describe --tag) --push --platform "linux/amd64,linux/arm64,linux/arm" .
+        run: docker buildx build -t registry.dispatch.sh/maartje/discord-hub:$GITHUB_SHA --push --platform "linux/amd64,linux/arm64,linux/arm" .
