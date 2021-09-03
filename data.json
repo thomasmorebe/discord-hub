@@ -1,5 +1,14 @@
 {
     "servers": {
+        "773847927910432789": {
+            "guildID": "773847927910432789",
+            "name": "Thomas More Gaming",
+            "description": "Join us for some games",
+            "bannerURL": "",
+            "order": 1,
+            "inviteChannelID": "773858882698215454",
+            "tags": ["gaming", "geel", "mechelen", "antwerpen", "lier", "turnhout"]
+        },
         "687565213943332875": {
             "guildID": "687565213943332875",
             "name": "IT Factory",
@@ -17,6 +26,15 @@
             "order": 11,
             "inviteChannelID": "689786403596533845",
             "tags": ["tech&it", "graduaten"]
+        },
+        "808273924600365058": {
+            "guildID": "808273924600365058",
+            "name": "ICE Cube",
+            "description": "ICE ICE BABY",
+            "bannerURL": "",
+            "order": 12,
+            "inviteChannelID": "808395496556986428",
+            "tags": ["ICE Cube", "Geel"]
         }
     }
 }
