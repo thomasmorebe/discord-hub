@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Card, Button, Modal, Row, Col } from "react-bootstrap"
+import { Card, Button, Modal, Row, Col, Badge } from "react-bootstrap"
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 
 
@@ -67,6 +67,13 @@ class Server extends Component {
           <Card.Body>
             <Card.Title>{this.state.server.name}</Card.Title>
             <Card.Text>
+              <div>
+                {this.state.server.tags.map(tag => (
+                  <Badge pill bg="primary mx-1">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
               {this.state.server.description}
             </Card.Text>
             <Button variant="info"onClick={this.openModal} >Join!</Button>

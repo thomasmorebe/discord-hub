@@ -14,12 +14,13 @@ type Data struct {
 }
 
 type Server struct {
-	GuildID         string `json:"guildID"`
-	Name            string `json:"name"`
-	BannerURL       string `json:"bannerURL"`
-	InviteChannelID string `json:"inviteChannelID"`
-	Description     string `json:"description"`
-	Order           int    `json:"order"`
+	GuildID         string   `json:"guildID"`
+	Name            string   `json:"name"`
+	BannerURL       string   `json:"bannerURL"`
+	InviteChannelID string   `json:"inviteChannelID"`
+	Description     string   `json:"description"`
+	Order           int      `json:"order"`
+	Tags            []string `json:"tags"`
 }
 
 func NewDataGetter() (*DataGetter, error) {
