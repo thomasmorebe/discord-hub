@@ -5,3 +5,22 @@ $info: #009cab;
 
 @import "~bootstrap/scss/bootstrap";
 
+
+.card {
+    &-img-top {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    &-body {
+        min-height: 150px;
+    }
+
+    &-footer {
+        background-color: inherit;
+        border: none;
+    }
+
+    margin-bottom: 2*$spacer;
+}

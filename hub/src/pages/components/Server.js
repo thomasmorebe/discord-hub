@@ -78,8 +78,10 @@ class Server extends Component {
               </div>
               {this.state.server.description}
             </Card.Text>
-            <Button variant="info"onClick={this.openModal} >{t('join_button')}</Button>
           </Card.Body>
+          <Card.Footer>
+            <Button variant="info"onClick={this.openModal} >{t('join_button')}</Button>
+          </Card.Footer>
         </Card>
         <Modal show={this.state.showModal} onHide={this.closeModal} backdrop="static" keyboard={false} centered size="lg" >
           <Modal.Header closeButton>

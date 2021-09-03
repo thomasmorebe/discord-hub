@@ -92,8 +92,10 @@ class NotYet extends Component {
             <Card.Text>
               {t("programme_not_here_desc")}
             </Card.Text>
-            <Button variant="info" onClick={this.openModal} >{t('let_me_know')}</Button>
           </Card.Body>
+          <Card.Footer>
+            <Button variant="info" onClick={this.openModal} >{t('let_me_know')}</Button>
+          </Card.Footer>
         </Card>
         <Modal show={this.state.showModal} onHide={this.closeModal} backdrop="static" keyboard={false} centered size="lg" >
           <Modal.Header closeButton>
