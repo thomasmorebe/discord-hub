@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import Server from "./components/Server";
 import NotYet from "./components/NotYet";
+import TagFilter from "./components/TagFilter";
 import { useTranslation } from 'react-i18next';
 
 
 function Hubs() {
     const [servers, setServers] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const [tags, setTags] = useState([]);
 
     const getServers = () => {
         fetch("https://camplus.club/api/servers")
@@ -29,6 +32,16 @@ function Hubs() {
         return <div>Loading...</div>
     }
 
+    const filterTags = () => {
+        if (tags.length === 0) {
+            return servers;
+        }
+        return servers.filter(server => {
+            return tags.some(tag => server.tags.includes(tag));
+        });
+    }
+
+
     return (
         <>
             <Row>
@@ -38,7 +51,10 @@ function Hubs() {
                 </div>
             </Row>
             <Row>
-                {servers.map(server => (
+                <TagFilter filterCallback={(tags) => setTags(tags)} />
+            </Row>
+            <Row>
+                {filterTags().map(server => (
                     <Col xs={12} sm={6} md={4} key={server.id}>
                         <Server server={server} />
                     </Col>

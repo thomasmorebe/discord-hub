@@ -1,4 +1,4 @@
-import './App.scss';
+import './scss/App.scss';
 import {Container} from 'react-bootstrap';
 import AppNav from './Nav';
 import Hubs from './pages/Hubs';
