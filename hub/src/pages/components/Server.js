@@ -7,16 +7,6 @@ function Server({ server }) {
   const [showModal, setShowModal] = useState(false);
   const [inviteURL, setInviteURL] = useState("");
 
-  const join = () => {
-    fetch(`/api/servers/${server.id}/join`)
-      .then(res => res.json())
-      .then(res => {
-        if (res.success) {
-          this.props.refresh();
-        }
-      });
-  };
-
   const handleVerificationSuccess = (token, ekey) => {
     fetch(`https://camplus.club/api/servers/${server.guildID}/join`, {
       method: "post",
@@ -24,11 +14,9 @@ function Server({ server }) {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-
-      //make sure to serialize your JSON body
       body: JSON.stringify({
         "h-captcha-response": token,
-        ekey: ekey,
+        ekey,
       }),
     })
       .then(res => res.json())
@@ -88,7 +76,7 @@ function Server({ server }) {
               )}
             </Col>
             <Col xs={5}>
-              <img src="/thomasbot.png" className={"img-fluid"} />
+              <img src="/thomasbot.png" className="img-fluid" alt={t("happy_thomas")} />
             </Col>
           </Row>
         </Modal.Body>

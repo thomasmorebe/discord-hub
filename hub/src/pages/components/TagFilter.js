@@ -46,7 +46,7 @@ function TagFilter({ filterCallback }) {
       </Col>
       <Col xs={12} className="mb-3">
         {tags.map(tag => (
-          <Badge pill bg={getBG(tag)} className="mx-1" onClick={() => handleTagClick(tag)} key={"filter-" + tag} style={{ cursor: "pointer" }}>
+          <Badge pill bg={getBG(tag)} className="mx-1" onClick={() => handleTagClick(tag)} key={`filter-${tag}`} style={{ cursor: "pointer" }}>
             {tag}
           </Badge>
         ))}

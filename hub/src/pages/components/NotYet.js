@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Card, Button, Modal, Row, Col, Form, Alert, Toast } from "react-bootstrap";
+import { Card, Button, Modal, Row, Col, Form, Alert } from "react-bootstrap";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-import { ToastService } from "../../_services/toastService";
-import { useTranslation, withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
+import ToastService from "../../_services/toastService";
 
 function NotYet() {
   const [showModal, setShowModal] = useState(false);
@@ -32,9 +32,9 @@ function NotYet() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email: email,
-        campus: campus,
-        programme: programme,
+        email,
+        campus,
+        programme,
         "h-captcha-response": hcapthaToken,
       }),
     })
@@ -90,9 +90,9 @@ function NotYet() {
                     <option value="select" disabled selected>
                       {t("select_your_campus")}
                     </option>
-                    {campuses.map(campus => (
-                      <option key={campus} value={campus}>
-                        {campus}
+                    {campuses.map(c => (
+                      <option key={c} value={c}>
+                        {c}
                       </option>
                     ))}
                   </Form.Select>
@@ -112,7 +112,7 @@ function NotYet() {
               </Form>
             </Col>
             <Col xs={5}>
-              <img src="/thomas-sad.png" alt={t("sad_thomas_bot")} className={"img-fluid"} />
+              <img src="/thomas-sad.png" alt={t("sad_thomas_bot")} className="img-fluid" />
             </Col>
           </Row>
         </Modal.Body>
