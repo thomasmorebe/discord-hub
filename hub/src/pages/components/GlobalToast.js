@@ -6,25 +6,20 @@ function GlobalToast() {
   const [toasts, setToasts] = useState([]);
   const [counter, setCounter] = useState(0);
 
-
   useEffect(() => {
-    ToastService.onToast()
-      .subscribe(toast => {
-        toast.show = true;
-        addToast(toast);
-      });
+    ToastService.onToast().subscribe(toast => {
+      toast.show = true;
+      addToast(toast);
+    });
   }, []);
 
-
-  const addToast = (toast) => {
+  const addToast = toast => {
     toast.id = counter;
     setCounter(counter + 1);
-  }
-  const removeToast = (id) => {
+  };
+  const removeToast = id => {
     setToasts(toasts.filter(toast => toast.id !== id));
-  }
-
-
+  };
 
   return (
     <div className="position-relative" style={{ zIndex: 999 }}>

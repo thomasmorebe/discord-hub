@@ -2,31 +2,30 @@
 
 @import "~bootstrap/scss/bootstrap";
 
-
 .card {
-    &-img-top {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-    }
+  &-img-top {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
 
-    &-body {
-        min-height: 150px;
-    }
+  &-body {
+    min-height: 150px;
+  }
 
-    &-footer {
-        background-color: inherit;
-        border: none;
-    }
+  &-footer {
+    background-color: inherit;
+    border: none;
+  }
 
-    margin-bottom: 2*$spacer;
+  margin-bottom: 2 * $spacer;
 }
 
 // override buttons so they have white text
 .btn-primary {
-    @include button-variant($primary, $primary, $color: #fff);
+  @include button-variant($primary, $primary, $color: #fff);
 }
 
 .btn-info {
-    @include button-variant($info, $info, $color: #fff);
+  @include button-variant($info, $info, $color: #fff);
 }
