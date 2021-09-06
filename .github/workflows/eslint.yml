@@ -25,6 +25,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      # Setup nodejs environment
+      - name: Setup nodejs environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
       # install deps
       - name: install deps
         run: |
