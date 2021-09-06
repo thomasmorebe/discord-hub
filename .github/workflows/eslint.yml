@@ -6,9 +6,9 @@ name: ESlint
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -27,9 +27,9 @@ jobs:
 
       # install deps
       - name: install deps
-        run:  |
-        cp hub/package* ./
-        npm install
+        run: |
+          cp hub/package* ./
+          npm install
 
       - name: ESLint Action eslintrc
         uses: mrdivyansh/eslint-action@v1.0.7
