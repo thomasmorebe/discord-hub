@@ -74,6 +74,7 @@ func (s *serveHTTPCmdOptions) RunE(cmd *cobra.Command, args []string) error {
 
 	e.POST("/api/servers/:guild/join", s.handleInvite)
 	e.GET("/api/servers", s.handleGetServers)
+	e.GET("/api/tags", s.handleGetTags)
 
 	// start HTTP server
 	return e.Start(s.BindAddr)
@@ -133,6 +134,10 @@ func (s *serveHTTPCmdOptions) handleGetServers(c echo.Context) error {
 		return servers[i].Order < servers[j].Order
 	})
 	return c.JSON(http.StatusOK, servers)
+}
+
+func (s *serveHTTPCmdOptions) handleGetTags(c echo.Context) error {
+	return c.JSON(http.StatusOK, s.data.GetAllTags())
 }
 
 func (s *serveHTTPCmdOptions) verifyCaptcha(ip, cResponse string) bool {

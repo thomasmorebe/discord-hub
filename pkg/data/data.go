@@ -56,3 +56,12 @@ func (d *DataGetter) GetServers() []Server {
 
 	return servers
 }
+
+func (d *DataGetter) GetAllTags() []string {
+	var tags []string
+	for _, server := range d.data.Servers {
+		tags = append(tags, server.Tags...)
+	}
+
+	return tags
+}
