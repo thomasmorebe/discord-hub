@@ -8,6 +8,16 @@
     "confirm_not_robot": "Kan je even bevestigen dat je geen collega robot bent?",
     "programme_not_here": "Jouw opleiding nog niet hier?",
     "programme_not_here_desc": "Jouw opleiding nog niet hier? Wil je op de hoogte gehouden worden wanneer er ook een Discord voor jouw opleiding is?",
-    "let_me_know": "Houd me op de hoogte!"
+    "let_me_know": "Houd me op de hoogte!",
+    "let_me_know_when_discord_launches": "Laat me weten als er een Discord is!",
+    "fill_in_your_details": "Vul hieronder je gegevens in, geen zorgen we sturen geen spam (ik ben een lieve robot)!",
+    "email_address": "Email adres",
+    "enter_email": "Voer je email in",
+    "campus": "Campus",
+    "select_your_campus": "Selecteer je campus",
+    "programme": "Opleding",
+    "enter_your_programme": "Vul je opleiding in",
+    "sign_up": "Meld me aan!",
+    "sad_thomas_bot": "trieste Thomas Bot"
 }
   

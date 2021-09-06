@@ -83,7 +83,7 @@ function NotYet() {
       </Card>
       <Modal show={showModal} onHide={() => setShowModal(false)} backdrop="static" keyboard={false} centered size="lg" >
         <Modal.Header closeButton>
-          <Modal.Title>Let me know when our Discord launches!</Modal.Title>
+          <Modal.Title>{t('let_me_know_when_discord_launches')}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Row>
@@ -93,25 +93,25 @@ function NotYet() {
                   {error}
                 </Alert>
               }
-              <p>Fill in your details below, don't worry I will not spam you (I am a friendly robot)!</p>
+              <p>{t('fill_in_your_details')}</p>
 
               <Form onSubmit={onFormSubmit}>
                 <Form.Group className="mb-3">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" required onChange={(e) => setEmail(e.target.value)} value={email} />
+                  <Form.Label>{t('email_address')}</Form.Label>
+                  <Form.Control type="email" placeholder={t('enter_email')} required onChange={(e) => setEmail(e.target.value)} value={email} />
                 </Form.Group>
                 <Form.Group className="mb-3">
-                  <Form.Label>Campus</Form.Label>
+                  <Form.Label>{t("campus")}</Form.Label>
                   <Form.Select onChange={(e) => setCampus(e.target.value)} value={campus} required>
-                    <option value="select" disabled selected>Select your campus</option>
+                    <option value="select" disabled selected>{t('select_your_campus')}</option>
                     {campuses.map(campus => (
                       <option key={campus} value={campus}>{campus}</option>
                     ))}
                   </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                  <Form.Label>Programme</Form.Label>
-                  <Form.Control type="text" placeholder="Enter your programme" onChange={(e) => setProgramme(e.target.value)} value={programme} required />
+                  <Form.Label>{t('programme')}</Form.Label>
+                  <Form.Control type="text" placeholder={t('enter_your_programme')} onChange={(e) => setProgramme(e.target.value)} value={programme} required />
                 </Form.Group>
 
                 <Form.Group className="mb-3">
@@ -122,12 +122,12 @@ function NotYet() {
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
-                  Sign up!
+                  {t('sign_up')}
                 </Button>
               </Form>
             </Col>
             <Col xs={5}>
-              <img src="/thomas-sad.png" className={"img-fluid"} />
+              <img src="/thomas-sad.png" alt={t('sad_thomas_bot')} className={"img-fluid"} />
             </Col>
           </Row>
         </Modal.Body>
