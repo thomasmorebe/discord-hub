@@ -55,11 +55,11 @@ function Hubs() {
             </Row>
             <Row>
                 {filterTags().map(server => (
-                    <Col xs={12} sm={6} md={4} key={server.id}>
+                    <Col xs={12} md={6} xl={4} key={server.id}>
                         <Server server={server} />
                     </Col>
                 ))}
-                <Col xs={12} sm={6} md={4}>
+                <Col xs={12} md={6} xl={4}>
                     <NotYet />
                 </Col>
             </Row>
