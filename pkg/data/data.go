@@ -3,6 +3,7 @@ package data
 import (
 	"encoding/json"
 	"os"
+	"sort"
 )
 
 type DataGetter struct {
@@ -58,10 +59,21 @@ func (d *DataGetter) GetServers() []Server {
 }
 
 func (d *DataGetter) GetAllTags() []string {
-	var tags []string
+	var tags = map[string]struct{}{}
 	for _, server := range d.data.Servers {
-		tags = append(tags, server.Tags...)
+		for _, tag := range server.Tags {
+			tags[tag] = struct{}{}
+		}
 	}
 
-	return tags
+	// get keys
+	var keys []string
+	for k := range tags {
+		keys = append(keys, k)
+	}
+
+	// sort keys
+	sort.Strings(keys)
+
+	return keys
 }
