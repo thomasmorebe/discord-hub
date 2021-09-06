@@ -1,46 +1,36 @@
-import { Component } from "react";
+import { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import Server from "./components/Server";
 import NotYet from "./components/NotYet";
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 
-class Hubs extends Component {
-    constructor(props) {
-        super(props);
-    
-        this.state = {
-            loading: true,
-            servers: [],
-        }
-    }
+function Hubs() {
+    const [servers, setServers] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    componentDidMount() {
-        this.getServers();
-    }
-
-    getServers() {
+    const getServers = () => {
         fetch("https://camplus.club/api/servers")
             .then(res => res.json())
             .then(servers => {
-                this.setState({
-                    loading: false,
-                    servers: servers,
-                });
+                setServers(servers);
+                setLoading(false);
             });
     }
 
+    useEffect(() => {
+        getServers();
+    }, []);
 
-    render() {
-        const { t } = this.props;
-        const { loading, servers } = this.state;
 
-        if (loading) {
-            return <div>Loading...</div>
-        }
+    const { t } = useTranslation()
 
-        return (
-            <>
+    if (loading) {
+        return <div>Loading...</div>
+    }
+
+    return (
+        <>
             <Row>
                 <div className="container-fluid py-5">
                     <h1 class="display-5 fw-bold">{t('jumbotron_header')}</h1>
@@ -54,12 +44,11 @@ class Hubs extends Component {
                     </Col>
                 ))}
                 <Col xs={12} sm={6} md={4}>
-                        <NotYet />
+                    <NotYet />
                 </Col>
             </Row>
-            </>
-        );
-      }
+        </>
+    );
 }
 
-export default withTranslation()(Hubs);
+export default Hubs;
