@@ -25,6 +25,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      # install deps
+      - name: install deps
+        run:  |
+        cp hub/package* ./
+        npm install
+
       - name: ESLint Action eslintrc
         uses: mrdivyansh/eslint-action@v1.0.7
         with:
