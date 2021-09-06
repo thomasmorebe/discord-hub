@@ -24,3 +24,12 @@ $info: #009cab;
 
     margin-bottom: 2*$spacer;
 }
+
+// override buttons so they have white text
+.btn-primary {
+    @include button-variant($primary, $primary, $color: #fff);
+}
+
+.btn-info {
+    @include button-variant($info, $info, $color: #fff);
+}
