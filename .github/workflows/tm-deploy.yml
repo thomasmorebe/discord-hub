@@ -34,3 +34,5 @@ jobs:
           port: 22
           source: "hub/build/*"
           target: "~/www"
+          overwrite: true
+          strip_components: 2
