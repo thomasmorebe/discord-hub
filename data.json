@@ -3,7 +3,7 @@
         "773847927910432789": {
             "guildID": "773847927910432789",
             "name": "Thomas More Gaming",
-            "description": "Join us for some games",
+            "description": "Ever wondered who plays Rocket League, CS GO or maybe League of Legends at your campus? Join our Thomas More Gaming server to come and find out!",
             "bannerURL": "https://camplus.club/hub-pictures/TM_Gaming_Logo2.png",
             "order": 1,
             "inviteChannelID": "773858882698215454",
@@ -12,7 +12,7 @@
         "687565213943332875": {
             "guildID": "687565213943332875",
             "name": "IT Factory",
-            "description": "Join us feel free IT Factory",
+            "description": "The IT Factory groups all IT degrees at campus Geel. Join our 1000+ members to meet our students, teachers and alumni.",
             "bannerURL": "https://camplus.club/hub-pictures/ITF_visual_new.jpg",
             "order": 10,
             "inviteChannelID": "687588438886842373",
@@ -20,7 +20,7 @@
         },
         "689786403596533841": {
             "guildID": "689786403596533841",
-            "name": "IT Graduanten",
+            "name": "IT Graduaten",
             "description": "Join us feel free this is NOT the IT Factory",
             "bannerURL": "https://camplus.club/hub-pictures/graduaten.jpg",
             "order": 11,
