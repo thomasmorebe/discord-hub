@@ -9,9 +9,9 @@ import "./scss/App.scss";
 function App() {
   return (
     <Router>
+      <GlobalToast />
+      <AppNav />
       <Container>
-        <GlobalToast />
-        <AppNav />
         <Switch>
           <Route path="/">
             <Hubs />
