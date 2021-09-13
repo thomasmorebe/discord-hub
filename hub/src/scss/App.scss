@@ -29,3 +29,9 @@
 .btn-info {
   @include button-variant($info, $info, $color: #fff);
 }
+
+//adjustment fontsize of main text
+.fs-4 {
+  font-size: 16px !important;
+}
+

@@ -1,7 +1,7 @@
 {
-  "select_language": "Chose Language",
-  "jumbotron_header": "Join us on Discord",
-  "jumbotron_text": "Join us on Discord because we are cool!",
+  "select_language": "Language",
+  "jumbotron_header": "Join us on  ",
+  "jumbotron_text": "Welcome on our Thomas More Discord hub. Here you'll find all Discord servers of Thomas More.<br/>You can filter on campus or on degree by clicking the different tags.<br/><br/>No Discord server yet?<br/>Scroll down and fill in the from and we keep you posted if anything changes!",
   "join_button": "Join!",
   "one_step_away": "You're one step away from joining {{GUILD}}!",
   "only_robot_can_enter": "Thomas Bot is the only robot who may enter",

@@ -42,7 +42,7 @@ function Hubs() {
     <>
       <Row>
         <div className="container-fluid py-5">
-          <h1 className="display-5 fw-bold">{t("jumbotron_header")}</h1>
+          <h1 className="display-5 fw-bold">{t("jumbotron_header")} <img src="/Discord.svg" alt="The fabulous Discord logo"/></h1>
           <p className="col-md-8 fs-4">
             <span dangerouslySetInnerHTML={{ __html: t("jumbotron_text") }} />
           </p>
