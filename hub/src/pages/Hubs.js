@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Row, Col } from "react-bootstrap";
@@ -42,7 +43,9 @@ function Hubs() {
       <Row>
         <div className="container-fluid py-5">
           <h1 className="display-5 fw-bold">{t("jumbotron_header")}</h1>
-          <p className="col-md-8 fs-4">{t("jumbotron_text")}</p>
+          <p className="col-md-8 fs-4">
+            <span dangerouslySetInnerHTML={{ __html: t("jumbotron_text") }} />
+          </p>
         </div>
       </Row>
       <Row>
