@@ -1,0 +1,34 @@
+name: Docker push to Dispatch
+
+on:
+  push:
+    branches: [main]
+    tags: ["*"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          # Need all the history for git describe --tags to work
+          fetch-depth: 0
+      # Setup nodejs environment
+      - name: Setup nodejs environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+     - name: build
+        run: |
+          cd hub
+          npm install
+          npm run build
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@8a54b394594637844fcf9ec5cab3eb97ce5dedae
+        with:
+          host: ${{ secrets.TM_HOST }}
+          username: ${{ secrets.TM_USER }}
+          password: ${{ secrets.TM_PASS }}
+          port: 22
+          source: "hub/build"
+          target: "~/www"
