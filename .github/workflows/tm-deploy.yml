@@ -32,5 +32,5 @@ jobs:
           username: ${{ secrets.TM_USER }}
           password: ${{ secrets.TM_PASS }}
           port: 22
-          source: "hub/build"
+          source: "hub/build/*"
           target: "~/www"
