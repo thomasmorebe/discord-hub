@@ -1,31 +1,62 @@
-.navbar {
-  height: 97px;
-  padding: 0.75em 0.75em 0.75em 2.25em;
+.site-header {
+  padding: .75em;
   border-bottom: 1px solid #ddd;
+}
+
+.navbar {
+  padding: .25em 0 .25em 0;
+
+  .navbar-brand {
+    display: flex;
+    flex-basis: 137px;
+    margin-right: 1em;
+    align-items: center;
+  }
+
+  .navbar-toggler {
+    margin-right: .75em;
+  }
 
   .nav-item {
     font-size: 18px;
-    padding: 0.75em;
+    padding-top: 0.75em;
+    margin: 0 .75em 0 .75em;
+    display: flex;
+    justify-content: center;
+
+    // Reset position,
+    .dropdown-menu[data-bs-popper] {
+      left: initial;
+    }
   }
 
-  .normal-link.nav-item .nav-link {
-    color: rgb(122, 122, 122) !important;
-    font-family: Source Sans Pro, Arial, Helvetica Neue, Helvetica, sans-serif;
-    transition: all 0.15s ease;
-    position: relative;
+  .normal-link.nav-item {
+    .nav-link {
+      color: rgb(122, 122, 122) !important;
+      font-family: Source Sans Pro, Arial, Helvetica Neue, Helvetica, sans-serif;
+      transition: all 0.15s ease;
+      position: relative;
+      padding-bottom: .75em;
 
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      height: 3px;
-      background: $primary;
-      left: 0.75em;
-      right: 100%;
-      transition: right 0.15s ease;
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        height: 3px;
+        background: $primary;
+        left: 0.75em;
+        right: 100%;
+        transition: right 0.15s ease;
+      }
+      &:hover:after {
+        right: 0.75em;
+      }
     }
-    &:hover:after {
-      right: 0.75em;
-    }
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .site-header {
+    padding: .75em .75em .75em 2.25em;
   }
 }
