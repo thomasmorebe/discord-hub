@@ -36,10 +36,8 @@ jobs:
         run: |
           cp hub/package* ./
           npm install
-
-      - name: ESLint Action eslintrc
-        uses: mrdivyansh/eslint-action@v1.0.7
+      - uses: reviewdog/action-eslint@v1
         with:
-          repo-token: ${{secrets.COMMENT_TOKEN}}
-          # Path to eslintrc
-          eslint-rc: hub/.eslintrc
+          reporter: github-pr-review # Change reporter.
+          eslint_flags: 'hub/src/'
+          github_token: ${{ secrets.COMMENT_TOKEN }}
