@@ -36,7 +36,7 @@ jobs:
         run: |
           cp hub/package* ./
           npm install
-      - uses: a-b-r-o-w-n/eslint-action@v2
+      - uses: a-b-r-o-w-n/eslint-action@v2.1.0
         with:
           repo-token: ${{ secrets.COMMENT_TOKEN }}
           files: "src/**/*"
