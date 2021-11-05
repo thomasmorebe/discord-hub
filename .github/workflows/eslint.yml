@@ -40,3 +40,4 @@ jobs:
         with:
           reporter: github-pr-review # Change reporter.
           eslint_flags: 'src/'
+          github_token: ${{ secrets.COMMENT_TOKEN }}
