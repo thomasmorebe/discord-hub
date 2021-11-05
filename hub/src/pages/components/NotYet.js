@@ -58,7 +58,7 @@ function NotYet() {
   return (
     <>
       <Card>
-        <Card.Img variant="top" src="/opdehoogte.jpg" alt="find feel join your next level" />
+        <Card.Img variant="top" src="/opdehoogte.png" alt="find feel join your next level" />
         <Card.Body>
           <Card.Title>{t("programme_not_here")}</Card.Title>
           <Card.Text>{t("programme_not_here_desc")}</Card.Text>
