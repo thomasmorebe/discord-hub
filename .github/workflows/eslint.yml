@@ -36,10 +36,7 @@ jobs:
         run: |
           cp hub/package* ./
           npm install
-      - uses: a-b-r-o-w-n/eslint-action@v2.1.0
+      - uses: reviewdog/action-eslint@v1
         with:
-          repo-token: ${{ secrets.COMMENT_TOKEN }}
-          files: "src/**/*"
-          extensions: ".js"
-          working-directory: "./hub"
-          quiet: "false"
+          reporter: github-pr-review # Change reporter.
+          eslint_flags: 'src/'
