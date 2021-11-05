@@ -36,10 +36,10 @@ jobs:
         run: |
           cp hub/package* ./
           npm install
-
-      - name: ESLint Action eslintrc
-        uses: mrdivyansh/eslint-action@v1.0.7
+      - uses: a-b-r-o-w-n/eslint-action@v2
         with:
-          repo-token: ${{secrets.COMMENT_TOKEN}}
-          # Path to eslintrc
-          eslint-rc: hub/.eslintrc
+          repo-token: ${{ secrets.COMMENT_TOKEN }}
+          files: "src/**/*"
+          extensions: ".js"
+          working-directory: "./hub"
+          quiet: "false"
