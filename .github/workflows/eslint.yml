@@ -41,6 +41,7 @@ jobs:
           cp hub/package* ./
           npm install
       - uses: reviewdog/action-eslint@v1
+        if: ${{ github.actor != 'dependabot[bot]' }}
         with:
           reporter: github-pr-review # Change reporter.
           eslint_flags: 'hub/src/'
