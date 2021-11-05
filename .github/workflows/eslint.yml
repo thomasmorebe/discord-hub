@@ -40,7 +40,6 @@ jobs:
       - name: ESLint Action eslintrc
         uses: mrdivyansh/eslint-action@v1.0.7
         with:
-          # GitHub repository token for publishing inline lint annotations. Should be secrets.GITHUB_TOKEN.
-          repo-token: ${{secrets.GITHUB_TOKEN}}
+          repo-token: ${{secrets.COMMENT_TOKEN}}
           # Path to eslintrc
           eslint-rc: hub/.eslintrc
