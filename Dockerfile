@@ -24,7 +24,7 @@ WORKDIR /go/src/github.com/thomasmorebe/discord-hub/hub
 RUN npm install
 RUN npm run build
 
-FROM alpine:3.14.2
+FROM alpine:3.14.3
 
 RUN apk add --no-cache ca-certificates
 
