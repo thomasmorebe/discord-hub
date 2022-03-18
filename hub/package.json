@@ -20,7 +20,7 @@
     "react-router": "^5.2.1",
     "react-router-dom": "^6.0.0",
     "react-scripts": "^4.0.3",
-    "rxjs": "^7.3.0",
+    "rxjs": "^7.5.5",
     "sass": "^1.39.2",
     "web-vitals": "^1.0.1"
   },
