@@ -13,9 +13,7 @@ function App() {
       <AppNav />
       <Container>
         <Routes>
-          <Route path="/">
-            <Hubs />
-          </Route>
+          <Route path="/" element={<Hubs />} />
         </Routes>
       </Container>
     </Router>
