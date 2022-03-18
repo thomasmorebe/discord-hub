@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import AppNav from "./Nav";
 import Hubs from "./pages/Hubs";
@@ -12,11 +12,11 @@ function App() {
       <GlobalToast />
       <AppNav />
       <Container>
-        <Switch>
+        <Routes>
           <Route path="/">
             <Hubs />
           </Route>
-        </Switch>
+        </Routes>
       </Container>
     </Router>
   );
