@@ -11,7 +11,7 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 	"github.com/thomasmorebe/discord-hub/pkg/data"
 
-	"github.com/meyskens/go-hcaptcha"
+	"github.com/meyskens/go-turnstile"
 
 	"github.com/spf13/cobra"
 )
@@ -23,12 +23,12 @@ func init() {
 }
 
 type serveHTTPCmdOptions struct {
-	Token              string
-	HCaptchaSiteKey    string
-	HCaptchaSiteSecret string
-	BindAddr           string
+	Token               string
+	TurnstileSiteKey    string
+	TurnstileSiteSecret string
+	BindAddr            string
 
-	hc   *hcaptcha.HCaptcha
+	ts   *turnstile.Turnstile
 	data *data.DataGetter
 }
 
@@ -44,13 +44,13 @@ func NewServeHTTPCmd() *cobra.Command {
 	}
 
 	c.Flags().StringVarP(&s.Token, "token", "t", "", "Discord bot token")
-	c.Flags().StringVarP(&s.HCaptchaSiteKey, "hcaptcha-site-key", "k", "", "HCaptcha site key")
-	c.Flags().StringVarP(&s.HCaptchaSiteSecret, "hcaptcha-site-secret", "s", "", "HCaptcha site secret")
+	c.Flags().StringVarP(&s.TurnstileSiteKey, "turnstile-site-key", "k", "", "Turnstile site key")
+	c.Flags().StringVarP(&s.TurnstileSiteSecret, "turnstile-site-secret", "s", "", "Turnstile site secret")
 	c.Flags().StringVarP(&s.BindAddr, "bind-addr", "a", ":8080", "Bind address")
 
 	c.MarkFlagRequired("token")
-	c.MarkFlagRequired("hcaptcha-site-key")
-	c.MarkFlagRequired("hcaptcha-site-secret")
+	c.MarkFlagRequired("turnstile-site-key")
+	c.MarkFlagRequired("turnstile-site-secret")
 
 	return c
 }
@@ -61,7 +61,7 @@ func (s *serveHTTPCmdOptions) Validate(cmd *cobra.Command, args []string) error 
 
 func (s *serveHTTPCmdOptions) RunE(cmd *cobra.Command, args []string) error {
 	var err error
-	s.hc = hcaptcha.New(s.HCaptchaSiteSecret)
+	s.ts = turnstile.New(s.TurnstileSiteSecret)
 	s.data, err = data.NewDataGetter()
 	if err != nil {
 		return err
@@ -91,19 +91,19 @@ func (s *serveHTTPCmdOptions) handleWaitlist(c echo.Context) error {
 	}
 
 	data := struct {
-		Email        string `json:"email"`
-		Campus       string `json:"campus"`
-		Programme    string `json:"programme"`
-		HcapthaToken string `json:"h-captcha-response"`
+		Email       string `json:"email"`
+		Campus      string `json:"campus"`
+		Programme   string `json:"programme"`
+		CapthaToken string `json:"cf-turnstile-response"`
 	}{}
 	c.Bind(&data)
 
-	if data.HcapthaToken == "" {
-		return c.JSON(http.StatusBadRequest, echo.Map{"error": "h-captcha-response is required"})
+	if data.CapthaToken == "" {
+		return c.JSON(http.StatusBadRequest, echo.Map{"error": "cf-turnstile-response is required"})
 	}
 
-	if !s.verifyCaptcha(ip, data.HcapthaToken) {
-		return c.JSON(http.StatusBadRequest, echo.Map{"error": "h-captcha-response is invalid"})
+	if !s.verifyCaptcha(ip, data.CapthaToken) {
+		return c.JSON(http.StatusBadRequest, echo.Map{"error": "cf-turnstile-response is invalid"})
 	}
 
 	e := embed.NewEmbed()
@@ -140,15 +140,15 @@ func (s *serveHTTPCmdOptions) handleInvite(c echo.Context) error {
 	}
 
 	data := struct {
-		HCaptcheResponse string `json:"h-captcha-response"`
+		CaptcheResponse string `json:"cf-turnstile-response"`
 	}{}
 	c.Bind(&data)
-	if data.HCaptcheResponse == "" {
-		return c.JSON(http.StatusBadRequest, echo.Map{"error": "h-captcha-response is required"})
+	if data.CaptcheResponse == "" {
+		return c.JSON(http.StatusBadRequest, echo.Map{"error": "cf-turnstile-response is required"})
 	}
 
-	if !s.verifyCaptcha(ip, data.HCaptcheResponse) {
-		return c.JSON(http.StatusBadRequest, echo.Map{"error": "h-captcha-response is invalid"})
+	if !s.verifyCaptcha(ip, data.CaptcheResponse) {
+		return c.JSON(http.StatusBadRequest, echo.Map{"error": "cf-turnstile-response is invalid"})
 	}
 
 	dg, err := discordgo.New("Bot " + s.Token)
@@ -184,7 +184,7 @@ func (s *serveHTTPCmdOptions) handleGetTags(c echo.Context) error {
 }
 
 func (s *serveHTTPCmdOptions) verifyCaptcha(ip, cResponse string) bool {
-	resp, err := s.hc.Verify(cResponse, ip)
+	resp, err := s.ts.Verify(cResponse, ip)
 	if err != nil {
 		log.Println(err)
 		return false

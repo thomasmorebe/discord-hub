@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Card, Button, Modal, Row, Col, Badge } from "react-bootstrap";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
+import Turnstile from "react-turnstile";
 import { useTranslation, withTranslation } from "react-i18next";
 
 function Server({ server }) {
@@ -15,7 +15,7 @@ function Server({ server }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        "h-captcha-response": token,
+        "cf-turnstile-response": token,
         ekey,
       }),
     })
@@ -72,7 +72,7 @@ function Server({ server }) {
                   </Button>
                 </div>
               ) : (
-                <HCaptcha sitekey="e28461d3-e633-4af7-abe4-8169abe9ba42" onVerify={(token, ekey) => handleVerificationSuccess(token, ekey)} />
+                <Turnstile sitekey="0x4AAAAAAAAyXH4DWFptMawt" onVerify={(token, ekey) => handleVerificationSuccess(token, ekey)} />
               )}
             </Col>
             <Col xs={5}>
