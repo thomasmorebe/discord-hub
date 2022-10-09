@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Card, Button, Modal, Row, Col, Form, Alert } from "react-bootstrap";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { useTranslation } from "react-i18next";
+import Turnstile from "react-turnstile";
 import ToastService from "../../_services/toastService";
 
 function NotYet() {
   const [showModal, setShowModal] = useState(false);
-  const [hcapthaToken, setHcapthaToken] = useState("");
+  const [capthaToken, setCapthaToken] = useState("");
   const [email, setEmail] = useState("");
   const [campus, setCampus] = useState("select");
   const [programme, setProgramme] = useState("");
@@ -17,7 +17,7 @@ function NotYet() {
   const onFormSubmit = event => {
     event.preventDefault();
 
-    if (!hcapthaToken) {
+    if (!capthaToken) {
       setError("Please verify you are human!");
       return;
     }
@@ -35,7 +35,7 @@ function NotYet() {
         email,
         campus,
         programme,
-        "h-captcha-response": hcapthaToken,
+        "cf-turnstile-response": capthaToken,
       }),
     })
       .then(res => res.json())
@@ -47,7 +47,7 @@ function NotYet() {
           setEmail("");
           setCampus("select");
           setProgramme("");
-          setHcapthaToken("");
+          setCapthaToken("");
 
           ToastService.send({ message: "Thank you! We signed you up for updates!" });
         }
@@ -103,7 +103,7 @@ function NotYet() {
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                  <HCaptcha sitekey="e28461d3-e633-4af7-abe4-8169abe9ba42" onVerify={token => setHcapthaToken(token)} />
+                  <Turnstile sitekey="0x4AAAAAAAAyXH4DWFptMawt" onVerify={token => setCapthaToken(token)} />
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
