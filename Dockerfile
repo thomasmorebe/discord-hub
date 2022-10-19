@@ -15,7 +15,7 @@ RUN export GOARM=6 && \
     if [ "$TARGETPLATFORM" == "linux/arm" ]; then export GOARCH=arm; fi && \
     go build -ldflags "-X main.revision=$(git rev-parse --short HEAD)" ./cmd/discord-hub/
 
-FROM --platform=$BUILDPLATFORM node:16 as frontend
+FROM --platform=$BUILDPLATFORM node:19 as frontend
 
 COPY ./ /go/src/github.com/thomasmorebe/discord-hub
 
