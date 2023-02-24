@@ -223,8 +223,9 @@ github.com/gogo/protobuf v1.3.1/go.mod h1:SlYgWuQ5SjCEi6WLHjHCa1yvBfUnHcTbrrZtXP
 github.com/gogo/protobuf v1.3.2/go.mod h1:P1XiOD3dCwIKUDQYPy72D8LYyHL2YPYrpS2s69NZV8Q=
 github.com/golang-jwt/jwt v3.2.2+incompatible h1:IfV12K8xAKAnZqdXVzCZ+TOjboZ2keLg81eXfW3O+oY=
 github.com/golang-jwt/jwt v3.2.2+incompatible/go.mod h1:8pz2t5EyA70fFQQSrl6XZXzqecmYZeUEB8OUGHkxJ+I=
-github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b h1:VKtxabqXZkF25pY9ekfRL6a582T4P37/31XEstQ5p58=
 github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b/go.mod h1:SBH7ygxi8pfUlaOkMMuAQtPIUF8ecWP5IEl/CR7VP2Q=
+github.com/golang/glog v1.0.0 h1:nfP3RFugxnNRyKgeWd4oI1nYvXpxrx8ck8ZrcizshdQ=
+github.com/golang/glog v1.0.0/go.mod h1:EWib/APOK0SL3dFbYqvxE3UYd8E6s1ouQ7iEp/0LWV4=
 github.com/golang/groupcache v0.0.0-20160516000752-02826c3e7903/go.mod h1:cIg4eruTrX1D+g88fzRXU5OdNfaM+9IcxsU14FzY7Hc=
 github.com/golang/groupcache v0.0.0-20190129154638-5b532d6fd5ef/go.mod h1:cIg4eruTrX1D+g88fzRXU5OdNfaM+9IcxsU14FzY7Hc=
 github.com/golang/groupcache v0.0.0-20190702054246-869f871628b6/go.mod h1:cIg4eruTrX1D+g88fzRXU5OdNfaM+9IcxsU14FzY7Hc=
@@ -479,8 +480,6 @@ github.com/matttproud/golang_protobuf_extensions v1.0.1/go.mod h1:D8He9yQNgCq6Z5
 github.com/mbilski/exhaustivestruct v1.2.0/go.mod h1:OeTBVxQWoEmB2J2JCHmXWPJ0aksxSUOUy+nvtVEfzXc=
 github.com/meyskens/discord-ha v0.0.0-20210723094030-8791e408bab7/go.mod h1:QpnvQEcrsH8bCce7hGhhj0tYuOMGKWGILHTRmElASVs=
 github.com/meyskens/go-hcaptcha v0.0.0-20200428113538-5c28ead635cd/go.mod h1:HIolLCBpnd1SJS+7IJSH7C/PjUfJZGOkHraw6N3nuQI=
-github.com/meyskens/go-turnstile v0.0.0-20221009122425-7eee5dcc1f3c h1:zMJxCNHZVKK3py0SZMdTSm8rnVxUg6roz8lIatyEHcQ=
-github.com/meyskens/go-turnstile v0.0.0-20221009122425-7eee5dcc1f3c/go.mod h1:AM2aAsOzrSZkCBBlPbpe3HyAIPGGBroP8F6NLp8wM7A=
 github.com/meyskens/go-turnstile v0.0.0-20221009122753-ba40a5ee2ceb h1:0d32khxdKtSCEYAS1HhahXsY0TBHGPJPj1ZN7BHPyhg=
 github.com/meyskens/go-turnstile v0.0.0-20221009122753-ba40a5ee2ceb/go.mod h1:AM2aAsOzrSZkCBBlPbpe3HyAIPGGBroP8F6NLp8wM7A=
 github.com/mgechev/dots v0.0.0-20190921121421-c36f7dcfbb81/go.mod h1:KQ7+USdGKfpPjXk4Ga+5XxQM4Lm4e3gAogrreFAYpOg=
