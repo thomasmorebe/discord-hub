@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM golang:1.17-alpine as build
+FROM --platform=$BUILDPLATFORM golang:1.25-alpine as build
 
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
@@ -24,7 +24,7 @@ WORKDIR /go/src/github.com/thomasmorebe/discord-hub/hub
 RUN npm install
 RUN npm run build
 
-FROM alpine:3.15.1
+FROM alpine:3.22
 
 RUN apk add --no-cache ca-certificates
 
